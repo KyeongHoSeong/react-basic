@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import Button from '../components/Button';
+import Display from '../components/Display';
 
 export class CounterApp extends Component {
     constructor(props) {
@@ -71,22 +74,5 @@ export class CounterApp extends Component {
         )
     }
 }
-
-const Button = ({children, clickHandler}) => 
-    <div>
-        <button onClick={clickHandler}> {children} </button>
-    </div>
-
-
-// const Display = (props) => (
-//     <div>
-//         <h1>{props.value}</h1>
-//     </div>
-// )
-const Display = ({value}) => 
-    <div>
-        <h1>{value}</h1>
-    </div>
-
 
 export default CounterApp
