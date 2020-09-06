@@ -1,71 +1,69 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './App.css';
+
+import Person from './components/Person';
+import Animal from './components/Animal';
+
 class App extends Component {
-  render() {
-    // return (
-    //     <div className = "App">
-    //       <h1>Hello World</h1>
-    //     </div>
-    //   );
-    //return React.createElement("div", {className: "App"}, "I am child!");
-    //return React.createElement("div", null, "I am child!");
-    // return React.createElement("div", className="App", "I am child!"); 에러
-    //return React.createElement("div", {className: "App"}, "I am child!");
-    //return React.createElement("div", {className: "App"}, "I am child!", "p")
-    //return React.createElement("div", {className: "App"}, React.createElement("h1", null, "this is h1"));
-    // return React.createElement(
-    //   "div", {className: "App"}, 
-    //   React.createElement("h1", null, "this is h1"),
-    //   React.createElement("h1", null, "this is h2"),
-    //   React.createElement("h1", null, "this is h3"),
-    //   React.createElement("h1", null, "this is h4"),
-    //   );
-      // 문제: 불편하다. so, JSX가 필요하다.
-
-       return (
-        <Fragment className = "App">
-        
-          <h1>this is h1</h1>
-          <h1>this is h2</h1>
-          <h1>this is h3</h1>
-          <h1>this is h4</h1>
-
-          {/* <person> </person> */}
-          <Person> </Person>
-          <Person> </Person>
-          <Person> </Person>
-
-        </Fragment>
-      );
+  constructor(){
+    super();
+    this.state = {
+      person: [
+        { name: "홍길동", age: 20 },
+        { name: "이흥부", age: 33 },
+        { name: "박놀부", age: 43 },
+      ],
+      animal: [
+        { name: "펭귄", area:"남극"},
+        { name: "코끼리", area:"아프리카"},
+      ]
+    };
   }
- 
-}
 
-// function person() {
-//   return ( 
-//     <h1> 1st Coponent ! </h1>
-//     <h2> Component는 Uppercase로 시작</h2>
-//   )
-// }
+  render() {
+    const {person, animal} = this.state;
+    return (
+      <div className="App">
+        {/* Task: 여기에 특정 내용(사람의 이름과 나이)를  표시.*/}
+        {/* component를 통하여 과제를 해결하도록 만든다. */}
+        {/* 속성으로 component에 값을 전달할 수 있다. */}
+        {/* <Person 
+          name={this.state.person[0].name} 
+          age={this.state.person[0].age}>
+          {" "}
+        </Person>
+        <Person
+          name={this.state.person[1].name}
+          age={this.state.person[1].age}
+        />
+        <Person
+          name={this.state.person[2].name}
+          age={this.state.person[2].age}
+        /> */}
 
+        <Person 
+          name={person[0].name} 
+          age={person[0].age}>
+          {" "}
+        </Person>
+        <Person
+          name={person[1].name}
+          age={person[1].age}
+        />
+        <Person
+          name={person[2].name}
+          age={person[2].age}
+        />
+        {/* <Animal name={"원숭이"} area={"아프리카"} /> */}
+        {/* <Animal name={this.state.animal[0].name} area={this.state.animal[0].area} />
+        <Animal name={this.state.animal[1].name} area={this.state.animal[1].area} /> */}
 
-// function Person() {
-//   return ( 
-//     <Fragment>
-//     <h1> 1st Coponent ! </h1>
-//     <h2> Component는 Uppercase로 시작</h2>
-//     </Fragment>
-//   )
-// }
+        <Animal name={animal[0].name} area={animal[0].area} />
+        <Animal name={animal[0].name} area={animal[1].area} />
 
-const Person = () => { //ES6
-  return ( 
-    <Fragment>
-    <h1> 1st Coponent ! </h1>
-    <h2> Component는 Uppercase로 시작</h2>
-    <h2> function을 arrow Function으로 ....</h2>
-    </Fragment>
-  )
+      </div>
+    );
+  }
 }
 
 export default App
